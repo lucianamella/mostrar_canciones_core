@@ -17,6 +17,8 @@
             <p><strong>Idioma:</strong> ${cancion.idioma}</p>
             <p><strong>Género:</strong> ${cancion.genero}</p>
             <a href="/canciones">Volver a la lista de canciones</a>
+            <br/>
+            <a href="/canciones/formulario/editar/${cancion.id}">Editar canción</a>
         </body>
                 
         </html>

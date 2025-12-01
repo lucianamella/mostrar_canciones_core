@@ -47,5 +47,25 @@ public class ControladorCanciones {
         servicioCanciones.agregarCancion(cancion);
         return "redirect:/canciones";
     }
+
+    //Desde aquí comienza la core de EDITAR CANCIONES
+    
+    @GetMapping("/canciones/formulario/editar/{idCancion}")
+    public String formularioEditarCancion(@PathVariable("idCancion") Long idCancion, Model model) {
+        com.lucianamella.models.Cancion cancion = servicioCanciones.obtenerCancionPorId(idCancion);
+        model.addAttribute("cancion", cancion);
+        return "editarCancion";
+    }
+
+    @PostMapping("/canciones/procesa/editar/{idCancion}")
+    public String procesarEditarCancion(@Valid @ModelAttribute("cancion") com.lucianamella.models.Cancion cancion, 
+    BindingResult result, @PathVariable("idCancion") Long idCancion, Model model) {
+        if (result.hasErrors()) {
+            return "editarCancion";
+        }
+        cancion.setId(idCancion);
+        servicioCanciones.actualizaCancion(cancion);
+        return "redirect:/canciones";
+    }
     
 }
