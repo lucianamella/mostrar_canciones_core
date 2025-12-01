@@ -19,6 +19,8 @@
             <a href="/canciones">Volver a la lista de canciones</a>
             <br/>
             <a href="/canciones/formulario/editar/${cancion.id}">Editar canción</a>
+            <br/>
+            <a href="/canciones/eliminar/${cancion.id}" onclick="return confirm('¿Está seguro de que desea eliminar esta canción?');">Eliminar canción</a>
         </body>
                 
         </html>

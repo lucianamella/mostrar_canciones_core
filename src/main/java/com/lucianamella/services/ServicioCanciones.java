@@ -30,4 +30,9 @@ public class ServicioCanciones {
     public Cancion actualizaCancion(Cancion cancion) {
         return repoCanciones.save(cancion);
     }
+
+    //Desde aquí comienza la core de ELIMINAR CANCIONES
+    public void eliminaCancion(Long id) {
+        repoCanciones.deleteById(id);
+    }
 }
