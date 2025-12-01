@@ -1,36 +1,41 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-        <!DOCTYPE html>
-        <html>
+<!DOCTYPE html>
+<html>
 
-        <head>
-            <meta charset="UTF-8">
-            <title>Canciones</title>
-        </head>
+<head>
+    <meta charset="UTF-8">
+    <title>Canciones</title>
+</head>
 
-        <body>
-            <h1>Canciones</h1>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Título</th>
-                        <th>Artista</th>
-                        <th>Detalle</th>
-                    </tr>
-                </thead>
-                <tbody c:forEach var="cancion" items="${listaCanciones}">
-                    <tr>
-                        <td>${cancion.titulo}</td>
-                        <td>${cancion.artista}</td>
-                        <td>
-                        <c:forEach var="cancion" items="${listaCanciones}">
-                            <tr>
-                                <td>${cancion.titulo}</td>
-                                <td>${cancion.artista}</td>
-                                <td>
-                                    <a href="/canciones/detalle/${cancion.id}">Ver detalle</a>
-                                </td>
-                            </tr>
-                        </c:forEach>
-        </html>
+<body>
+    <h1>Canciones</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Título</th>
+                <th>Artista</th>
+                <th>Detalle</th>
+            </tr>
+        </thead>
+        <tbody>
+            <c:forEach var="cancion" items="${listaCanciones}">
+                <tr>
+                    <td>${cancion.titulo}</td>
+                    <td>${cancion.artista}</td>
+                    <td>
+                        <a href="/canciones/detalle/${cancion.id}">Ver detalle</a>
+                    </td>
+                </tr>
+            </c:forEach>
+        </tbody>
+    </table>
+
+    <p>
+        <a href="/canciones/formulario/agregar">Agregar canción</a>
+    </p>
+
+</body>
+
+</html>

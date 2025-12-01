@@ -20,4 +20,9 @@ public class ServicioCanciones {
     public Cancion obtenerCancionPorId(Long id) {
         return repoCanciones.findById(id).orElse(null);
     }
+
+    //Desde aquí comienza la core de AGREGAR CANCIONES
+    public Cancion agregarCancion(Cancion cancion) {
+        return repoCanciones.save(cancion);
+    }
 }

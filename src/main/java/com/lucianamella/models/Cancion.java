@@ -3,6 +3,8 @@ package com.lucianamella.models;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -15,13 +17,31 @@ import java.time.LocalDateTime;
 @Table(name="canciones")
 public class Cancion {
 
+
+    //Desde aquí comienza la core de AGREGAR CANCIONES
+    //Anotaciones con validación de formulario
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @NotBlank(message = "El título es obligatorio")
+    @Size(min = 5, message = "Al menos 5 caracteres de longitud.")
     private String titulo;
+
+    @NotBlank(message = "El artista es obligatorio")
+    @Size(min = 3, message = "Al menos 3 caracteres de longitud.")
     private String artista;
+
+    @NotBlank(message = "El álbum es obligatorio")
+    @Size(min = 3, message = "Al menos 3 caracteres de longitud.")
     private String album;
+
+    @NotBlank(message = "El idioma es obligatorio")
+    @Size(min = 3, message = "Al menos 3 caracteres de longitud.")
     private String idioma; 
+
+    @NotBlank(message = "El género es obligatorio")
+    @Size(min = 3, message = "Al menos 3 caracteres de longitud.")
     private String genero;
 
     @CreationTimestamp
@@ -36,7 +56,7 @@ public class Cancion {
     public Cancion() {
     }
 
-    
+    // Getters y Setters
 
     public Long getId() {
         return id;
